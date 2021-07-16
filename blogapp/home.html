@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog-Homepage</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+Hello <b>{{user.username}}</b>, Welcome back .<br>
+    <h4><a href="{% url 'logout' %}">Logout</a></h4>
+<h3>Add a new <a href="{% url 'add_post' %}">Blog</a> </h3>
+{% else %}
+    <h3>Signup here ,<a href="{% url 'register' %}">Register</a>.</h3>
+    <h3>Already a user , <a href="{% url 'login' %}">Login</a>.</h3>
+{% endif %}
+<h1><i><u>Blogs</u></i></h1>
+<ul>
+{% for post in object_list %}
+    <li> <b>{{ post.title }} - {{ post.author }}</b><br>
+            <a href="{% url 'article_details' post.pk %}"> View blog</a>
+        </li>
+{% endfor %}
+</ul>
+
+
+
+</body>
+</html>

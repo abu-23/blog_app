@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete post</title>
+</head>
+<body>
+<h3>Delete post.</h3><hr>
+
+{% if user.is_authenticated %}
+
+    {% if user.id == post.author.id %}
+        <form method="post">
+        {% csrf_token %}
+        <b>Are you sure?!</b>
+        <button class="btn btn-secondary">Delete</button>
+    {% else %}
+        Please,Login as <b>{{post.author}}</b> to delete the blog.<br>
+    {% endif %}
+
+{% else %}
+    You are not allowed here.
+
+{% endif %}
+</body>
+</html>

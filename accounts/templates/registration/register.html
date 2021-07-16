@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h3>Register as New user.</h3><hr>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Register</button>
+</form>
+
+</body>
+</html>

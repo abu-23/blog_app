@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Details</title>
+</head>
+<body>
+<h2>Blog Details</h2><hr>
+<h4>{{ post.title }} <small> posted by </small>{{ post.author }}<br></h4>
+{{ post.body }}<br><br><hr>
+
+{% if user.is_authenticated %}
+
+    <form action="{% url 'like_post' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>-{{ total_likes }} likes.
+    </form>
+
+    {% if user.id == post.author.id %}
+        <h3><a href="{% url 'update_details' post.pk %}">edit</a>
+        <a href="{% url 'delete_post' post.pk %}">delete</a><br></h3>
+    {% else %}
+        Please,Login as <b>{{post.author}}</b> to update the blog<br>
+    {% endif %}
+
+{% endif %}
+<br>
+<a href="{% url 'home' %}">Back to Homepage</a>
+
+</body>
+</html>

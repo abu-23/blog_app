@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new post</title>
+</head>
+<body>
+<h3>Add post.</h3><hr>
+{% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Post</button>
+    {% else %}
+        Login first to add a post.
+{% endif %}
+</form>
+</body>
+</html>
