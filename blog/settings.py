@@ -24,7 +24,7 @@ SECRET_KEY = 'gng#c-bxz9013^-d_t$s^7*%h_z4u8wd127__=n628_=$h%%-&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['abus-blog.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['abus-blog.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
