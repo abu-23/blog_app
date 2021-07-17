@@ -7,13 +7,15 @@
 <body>
 <h2>Blog Details</h2><hr>
 <h4>{{ post.title }} <small> posted by </small>{{ post.author }}<br></h4>
-{{ post.body }}<br><br><hr>
+{{ post.body }}<br><br>
+<b>-{{ total_likes }} likes</b>    
+<hr>
 
 {% if user.is_authenticated %}
 
     <form action="{% url 'like_post' post.pk %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>-{{ total_likes }} likes.
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>
     </form>
 
     {% if user.id == post.author.id %}
