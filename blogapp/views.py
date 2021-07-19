@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.template import context
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -37,7 +36,7 @@ class ArticleDetailView(DetailView):
 class AddpostView(CreateView):
     model = Blog
     template_name = "add_post.html"
-    fields = '__all__'
+    fields = ('title', 'body','author')
     context_object_name = 'post'
 
 
